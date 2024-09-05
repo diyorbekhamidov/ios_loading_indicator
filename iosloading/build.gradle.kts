@@ -11,9 +11,9 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-                groupId = "<com.github.diyorbekhamidov>"
-                artifactId = "<iosloading>"
-                version = "<1.0.0>"
+                groupId = "com.github.diyorbekhamidov"
+                artifactId = "ios.loading"
+                version = "1.0.0"
             }
         }
     }
