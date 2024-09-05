@@ -9,8 +9,11 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.1"
 constraintlayout = "2.1.4"
+iosloading = "1.0.4"
 
 [libraries]
+ios-loading = { group = "com.github.diyorbekhamidov", name = "ios_loading_indicator", version.ref = "iosloading" }
+
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

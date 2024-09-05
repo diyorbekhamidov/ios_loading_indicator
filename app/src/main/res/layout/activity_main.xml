@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context=".MainActivity">
 
     <com.bounce.iosloading.IosLoadingView
-        id="@+id/iosloading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:radius="15dp"/>
+        android:id="@+id/progress"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:radius="15dp" />
 
 </RelativeLayout>
