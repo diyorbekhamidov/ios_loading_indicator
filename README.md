@@ -25,7 +25,7 @@
 
 ```groovy
 dependencies {
-          implementation 'com.github.diyorbekhamidov:ios_loading_indicator:1.0.4'
+          implementation 'com.github.diyorbekhamidov:ios_loading_indicator:1.0.5'
 	}
 ```
 
@@ -35,9 +35,8 @@ dependencies {
 ```xml
 <com.bounce.iosloading.IosLoadingView
         android:id="@+id/progress"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:radius="15dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 ```
 
