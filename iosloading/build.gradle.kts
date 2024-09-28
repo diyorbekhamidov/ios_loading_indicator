@@ -13,7 +13,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.diyorbekhamidov"
                 artifactId = "ios.loading"
-                version = "1.0.5"
+                version = "1.0.6"
             }
         }
     }
