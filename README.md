@@ -25,7 +25,7 @@
 
 ```groovy
 dependencies {
-          implementation 'com.github.diyorbekhamidov:ios_loading_indicator:1.0.5'
+          implementation 'com.github.diyorbekhamidov:ios_loading_indicator:1.0.7'
 	}
 ```
 
