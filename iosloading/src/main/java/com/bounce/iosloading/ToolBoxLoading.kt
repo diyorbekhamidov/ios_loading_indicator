@@ -8,17 +8,17 @@ import android.graphics.Paint
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RoundRectShape
 
-class ToolLoading
+class ToolBoxLoading
 private constructor() {
     var context: Context? = null
 
     companion object {
         @SuppressLint("StaticFieldLeak")
         @get:Synchronized
-        var instance: ToolLoading? = null
+        var instance: ToolBoxLoading? = null
             get() {
                 if (field == null) {
-                    field = ToolLoading()
+                    field = ToolBoxLoading()
                 }
 
                 return field

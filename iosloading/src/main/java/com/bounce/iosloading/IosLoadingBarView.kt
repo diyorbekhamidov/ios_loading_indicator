@@ -14,7 +14,7 @@ class IosLoadingBarView(private val context: Context, private val cornerRadius: 
 //        setBackground(ToolBox.roundedCornerRectWithColor(
 //                Color.argb(255, 255, 255, 255), cornerRadius));
 
-        background = ToolLoading.roundedCornerRectWithColor(
+        background = ToolBoxLoading.roundedCornerRectWithColor(
             Color.GRAY,
             cornerRadius
         )
@@ -23,7 +23,7 @@ class IosLoadingBarView(private val context: Context, private val cornerRadius: 
     }
 
     fun resetColor() {
-        background = ToolLoading.roundedCornerRectWithColor(
+        background = ToolBoxLoading.roundedCornerRectWithColor(
             Color.argb(255, 255, 255, 255), cornerRadius
         )
 

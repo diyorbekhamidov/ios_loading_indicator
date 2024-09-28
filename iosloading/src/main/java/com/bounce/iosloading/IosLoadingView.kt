@@ -28,6 +28,9 @@ class IosLoadingView @JvmOverloads constructor(
     private val handler = Handler()
     private var playFrameRunnable: Runnable? = null
 
+    private val defaultWidth = 60.dpToPx(context)
+    private val defaultHeight = 60.dpToPx(context)
+
     init {
         val typedArray =
             context.obtainStyledAttributes(attrs, R.styleable.IosLoadingView, defStyleAttr, 0)
@@ -38,6 +41,8 @@ class IosLoadingView @JvmOverloads constructor(
         addViews()
         spreadBars()
         startAnimating()
+        showFrame(numberOfBars)
+
 
     }
 
@@ -75,7 +80,6 @@ class IosLoadingView @JvmOverloads constructor(
     fun addViews() {
         for (i in 0 until numberOfBars) {
             val bar = arrBars!![i]
-
             addView(bar)
         }
     }
@@ -206,5 +210,51 @@ class IosLoadingView @JvmOverloads constructor(
         }
 
         invalidate()
+    }
+
+    private fun Int.dpToPx(context: Context): Int {
+        return (this * context.resources.displayMetrics.density).toInt()
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val width = resolveDefaultSize(defaultWidth, widthMeasureSpec)
+        val height = resolveDefaultSize(defaultHeight, heightMeasureSpec)
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        setMeasuredDimension(width, height)
+    }
+
+    private fun resolveDefaultSize(defaultSize: Int, measureSpec: Int): Int {
+        val mode = MeasureSpec.getMode(measureSpec)
+        val size = MeasureSpec.getSize(measureSpec)
+        return when (mode) {
+            MeasureSpec.EXACTLY -> size // If exact size is given, use it
+            MeasureSpec.AT_MOST -> minOf(
+                defaultSize,
+                size
+            ) // Use the smaller of the default or given size
+            MeasureSpec.UNSPECIFIED -> defaultSize // If no size is specified, use the default
+            else -> defaultSize
+        }
+    }
+
+    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+        super.onLayout(changed, l, t, r, b)
+
+        val centerX = width / 2
+        val centerY = height / 2
+        for (i in arrBars!!.indices) {
+            val bar = arrBars!![i]
+            val barWidth = bar.measuredWidth
+            val barHeight = bar.measuredHeight
+
+            // set elements in center
+            val leftPosition = centerX - (barWidth / 2)
+            val topPosition = centerY - (barHeight / 2)
+
+            // set elements
+            bar.layout(leftPosition, topPosition, leftPosition + barWidth, topPosition + barHeight)
+
+        }
+
     }
 }
