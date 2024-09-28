@@ -2,6 +2,3 @@ jdk:
   - openjdk17
 before_install:
   - ./scripts/prepareJitpackEnvironment.sh
-  - build:
-      commands:
-        - ./gradlew clean build
